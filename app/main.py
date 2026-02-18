@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.core.database import engine, Base
 
 
 app = FastAPI(title='PharmaCore')
