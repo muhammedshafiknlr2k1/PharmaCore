@@ -8,7 +8,6 @@ class MedicineRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    
     def create(self, medicine_data: MedicineCreate):
         medicine = Medicine(**medicine_data.model_dump())
         self.db.add(medicine)
@@ -16,15 +15,12 @@ class MedicineRepository:
         self.db.refresh(medicine)
         return medicine
     
-
     def get_all(self):
         return self.db.query(Medicine).all()
     
-
     def get_by_id(self, medicine_id: int):
         return self.db.get(Medicine, medicine_id)
     
-
     def update(self, medicine_id: int, medicine_data: MedicineUpdate):
         medicine = self.get_by_id(medicine_id)
         if not medicine:
@@ -35,7 +31,6 @@ class MedicineRepository:
         self.db.refresh(medicine)
         return medicine
     
-
     def delete(self, medicine_id: int):
         medicine = self.get_by_id(medicine_id)
         if not medicine:

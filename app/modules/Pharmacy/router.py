@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from app.modules.pharmacy.schemas import PharmacyCreate, PharmacyOut, PharmacyUpdate
+from .schemas import PharmacyCreate, PharmacyOut, PharmacyUpdate
 from app.core.database import get_db
-from app.modules.pharmacy.service import PharmacyService
+from .service import PharmacyService
 
 
 router = APIRouter(prefix='/pharmacies', tags=['Pharmacies'])
